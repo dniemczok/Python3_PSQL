@@ -1,0 +1,19 @@
+{
+  "logger": {
+    "title": "Remote Sync"
+  },
+  "uploadOnSave": true,
+  "useAtomicWrites": true,
+  "deleteLocal": false,
+  "hostname": "lh",
+  "port": "22032",
+  "target": "/home/dniemczok",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "dniemczok",
+  "password": "o00okapA",
+  "watch": [],
+  "transport": "scp"
+}
