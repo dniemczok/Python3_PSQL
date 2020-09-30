@@ -18,9 +18,8 @@ try:
 
     print("Print each row and it's columns values")
     for row in mobile_records:
-        print("ID = ", row[0], )
-        print("ZMIENNA = ", row[1])
-        print("WARTOSC  = ", row[2], "\n")
+        print("ZMIENNA = ", row[0])
+        print("WARTOSC  = ", row[1], "\n")
 
 except (Exception, psycopg2.Error) as error :
     print ("Error while connecting to PostgreSQL", error)

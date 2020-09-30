@@ -2,7 +2,7 @@ import psycopg2
 
 class TmaskPslq:
 
-    # Dodaj wartość
+# Dodaj wartość
     def ins_var_to_psql(var1, var2):
 
         try:
@@ -37,11 +37,7 @@ class TmaskPslq:
                 connection.close()
                 #print("PostgreSQL connection is closed")
 
-
-
-                # Pobierz wartość
-
-
+# Pobierz wartość
     def get_var_to_psql(var1):
                     try:
                         connection = psycopg2.connect(user = "dniemczok",
@@ -75,6 +71,35 @@ class TmaskPslq:
 
                                 #get_var_do_psql('PATH')
 
-#TmaskPslq.get_var_to_psql('PATH')
+# Wyświetl wszystko
+    def all_var_to_psql():
+        try:
+            connection = psycopg2.connect(user = "dniemczok",
+            password = "postgres",
+            host = "127.0.0.1",
+            port = "5432",
+            database = "dniemczok")
 
-#TmaskPslq.ins_var_to_psql('SRC', '/home/pi')
+            cursor = connection.cursor()
+            # Print PostgreSQL Connection properties
+            #print ( connection.get_dsn_parameters(),"\n")
+
+            postgreSQL_select_Query = "select * from tmask_var"
+
+            cursor.execute(postgreSQL_select_Query)
+            #print("Selecting rows from tmask table using cursor.fetchall")
+            mobile_records = cursor.fetchall()
+
+            #print("Print each row and it's columns values")
+            for row in mobile_records:
+                print("ZMIENNA = ", row[0])
+                print("WARTOSC  = ", row[1], "\n")
+
+        except (Exception, psycopg2.Error) as error :
+            print ("Error while connecting to PostgreSQL", error)
+        finally:
+            #closing database connection.
+            if(connection):
+                cursor.close()
+                connection.close()
+                #print("PostgreSQL connection is closed")
