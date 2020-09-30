@@ -15,8 +15,8 @@ try:
     record = cursor.fetchone()
     print("You are connected to - ", record,"\n")
 
-    postgres_insert_query = """ INSERT INTO tmask (ID, ZMIENNA, WARTOSC) VALUES (%s,%s,%s)"""
-    record_to_insert = (1, 'PATH', '/opt/DOC')
+    postgres_insert_query = """ INSERT INTO tmask_var (ZMIENNA, WARTOSC) VALUES (%s,%s)"""
+    record_to_insert = ('PATH', '/opt/DOC')
     cursor.execute(postgres_insert_query, record_to_insert)
 
     connection.commit()

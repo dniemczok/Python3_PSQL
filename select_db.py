@@ -10,7 +10,7 @@ try:
     # Print PostgreSQL Connection properties
     print ( connection.get_dsn_parameters(),"\n")
 
-    postgreSQL_select_Query = "select * from tmask"
+    postgreSQL_select_Query = "select * from tmask_var"
 
     cursor.execute(postgreSQL_select_Query)
     print("Selecting rows from tmask table using cursor.fetchall")

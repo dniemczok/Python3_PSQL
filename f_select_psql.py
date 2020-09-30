@@ -12,7 +12,7 @@ def get_var_do_psql(var1):
                                     # Print PostgreSQL Connection properties
         #print ( connection.get_dsn_parameters(),"\n")
 
-        postgreSQL_select_Query = "select * from tmask where ZMIENNA = '%s'" % var1
+        postgreSQL_select_Query = "select * from tmask_var where ZMIENNA = '%s'" % var1
 
         cursor.execute(postgreSQL_select_Query)
         #print("Selecting rows from tmask table using cursor.fetchall")
@@ -21,7 +21,7 @@ def get_var_do_psql(var1):
         #print("Print each row and it's columns values")
         for row in tmask_records:
             #print("WARTOSC  = ", row[2], "\n")
-            print(row[2])
+            print(row[1])
     except (Exception, psycopg2.Error) as error :
         print ("Error while connecting to PostgreSQL", error)
     finally:

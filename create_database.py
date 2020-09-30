@@ -15,9 +15,8 @@ try:
     record = cursor.fetchone()
     print("You are connected to - ", record,"\n")
 
-    create_table_query = '''CREATE TABLE IF NOT EXISTS tmask
-          (ID INT PRIMARY KEY     NOT NULL,
-          ZMIENNA           TEXT    NOT NULL,
+    create_table_query = '''CREATE TABLE IF NOT EXISTS tmask_var
+          (ZMIENNA           TEXT    NOT NULL,
           WARTOSC         TEXT    NULL); '''
 
     cursor.execute(create_table_query)
